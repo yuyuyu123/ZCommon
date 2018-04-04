@@ -2,7 +2,7 @@ package com.cc.android.zcommon.download;
 
 /**
  * The retrofit download adapter defined for a callback to be invoked when
- * {@link com.ccclubs.common.download.RetrofitDownloadManager#downloadFile(String)} passes
+ * {@link RetrofitDownloadManager#downloadFile(String)} passes
  * downloading progress and download results:
  * 1)downloading
  *      {@link #onDownloading(int, String, long, long)}
