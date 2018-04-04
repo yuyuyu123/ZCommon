@@ -10,7 +10,7 @@ import retrofit2.http.Url;
  * The retrofit download service that manages all primary time-consuming tasks(download).
  *
  * Instances of this class should be obtained through
- * {@link com.ccclubs.common.api.ManagerFactory#getManager(Class)}.
+ * {@link com.cc.android.zcommon.api.ManagerFactory#getManager(Class)}.
  *
  * @Auther LiuLiWei
  */

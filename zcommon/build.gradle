@@ -1,6 +1,9 @@
 apply plugin: 'com.android.library'
+//apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.github.dcendents.android-maven'
 
+group='com.github.yuyuyu123'
 android {
     compileSdkVersion COMPILE_SDK_VERSION
     buildToolsVersion BUILD_TOOLS_VERSION
@@ -59,12 +62,19 @@ dependencies {
 }
 
 publish {
-    userOrg = 'sfsheng0322'
-    groupId = 'com.sunfusheng'
-    artifactId = 'glideimageview'
-    publishVersion = '1.3.0'
-    desc = 'GlideImageView is an image loading library which you can listen to the progress of loading.'
-    website = 'https://github.com/sfsheng0322/GlideImageView'
+    repoName="ZCommon"
+    userOrg = 'liuliwei49'
+    groupId = 'com.cc.android'
+    artifactId = 'ZCommon'
+    publishVersion = '1.0.0'
+    desc = 'A library for fast developing android applications.'
+    website = 'https://github.com/yuyuyu123/ZCommon'
+}
+
+tasks.withType(Javadoc) {//防止编码问题
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
 }
 
 //task makeJar(type: org.gradle.api.tasks.Copy){
