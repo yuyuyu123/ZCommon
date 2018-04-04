@@ -1,0 +1,77 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+android {
+    compileSdkVersion COMPILE_SDK_VERSION
+    buildToolsVersion BUILD_TOOLS_VERSION
+
+    compileOptions {
+        // Gradle JDK Version
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    defaultConfig {
+        minSdkVersion MIN_SDK_VERSION
+        targetSdkVersion TARGET_SDK_VERSION
+        versionCode 1
+        versionName "1.0.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+//    testCompile 'junit:junit:4.12'
+    // http://developer.android.com/intl/zh-cn/tools/support-library/index.html
+    api "com.android.support:support-annotations:$SUPPORT_LIBRARY_VERSION"
+    api "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
+    api "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
+    api "com.android.support:recyclerview-v7:$SUPPORT_LIBRARY_VERSION"
+    api "com.android.support:cardview-v7:$SUPPORT_LIBRARY_VERSION"
+    api "org.greenrobot:eventbus:$EVENT_BUS_VERSION"
+    // https://github.com/ReactiveX/RxAndroid
+    api "io.reactivex.rxjava2:rxjava:$RXJAVA_VERSION"
+    api "io.reactivex.rxjava2:rxandroid:$RXANDROID_VERSION"
+    // https://github.com/square/retrofit
+    api "com.squareup.okhttp3:okhttp:$OKHTTP_VERSION"
+    api "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+    api "com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_VERSION"
+    api "com.squareup.retrofit2:retrofit-converters:$RETROFIT_VERSION"
+    api "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
+    api "com.squareup.retrofit2:retrofit-adapters:$RETROFIT_VERSION"
+    // https://github.com/afollestad/material-dialogs
+    api("com.afollestad.material-dialogs:commons:$COMMONS_DIALOG_VERSION") {
+        exclude group: 'com.android.support' //by group
+    }
+    api "com.readystatesoftware.systembartint:systembartint:$SYSTEM_BAR_TINT_VERSION"
+    api "com.github.bumptech.glide:glide:$GLIDE_VERSION"
+    annotationProcessor "com.github.bumptech.glide:compiler:$GLIDE_VERSION"
+//    api "com.github.bumptech.glide:okhttp3-integration:$GLIDE_VERSION"
+}
+
+publish {
+    userOrg = 'sfsheng0322'
+    groupId = 'com.sunfusheng'
+    artifactId = 'glideimageview'
+    publishVersion = '1.3.0'
+    desc = 'GlideImageView is an image loading library which you can listen to the progress of loading.'
+    website = 'https://github.com/sfsheng0322/GlideImageView'
+}
+
+//task makeJar(type: org.gradle.api.tasks.Copy){
+//    delete 'build/libs/ZCommon.jar'
+//    from('build/intermediates/bundles/release/')
+//    into('build/libs/')
+//    include('classes.jar')
+//    rename('classes.jar','ZCommon.jar')
+//}
+//makeJar.dependsOn(build)

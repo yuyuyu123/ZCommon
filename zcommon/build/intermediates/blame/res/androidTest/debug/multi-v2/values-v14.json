@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "E:\\ZCommon\\zcommon\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v14\\values-v14.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Liuliwei\\.gradle\\caches\\transforms-1\\files-1.1\\core-0.8.6.2.aar\\36104937a5946c1678d1430f79d78e37\\res\\values-v14\\values-v14.xml",
+                    "from": {
+                        "startLines": "2,9",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,428",
+                        "endLines": "8,17",
+                        "endColumns": "12,12",
+                        "endOffsets": "423,855"
+                    }
+                }
+            ]
+        }
+    ]
+}
