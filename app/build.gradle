@@ -2,6 +2,10 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
     defaultConfig {
         applicationId "simple.zcommon.cc.com.zcommon"
         minSdkVersion 18
@@ -25,5 +29,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile project(':zcommon')
-//    compile 'com.github.yuyuyu123:ZCommon:1.0.2'
+//    compile 'com.github.yuyuyu123:ZCommon:1.0.3'
 }
