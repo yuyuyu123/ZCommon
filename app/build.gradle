@@ -7,7 +7,7 @@ android {
         targetCompatibility 1.8
     }
     defaultConfig {
-        applicationId "simple.zcommon.cc.com.zcommon"
+        applicationId "com.zcommon.simple"
         minSdkVersion 18
         targetSdkVersion 25
         versionCode 1
@@ -28,6 +28,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile project(':zcommon')
-//    compile 'com.github.yuyuyu123:ZCommon:1.0.3'
+//    compile project(':zcommon')
+    compile 'com.github.yuyuyu123:ZCommon:1.0.3'
 }
