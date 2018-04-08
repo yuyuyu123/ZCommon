@@ -20,14 +20,16 @@
   ```java
   user_strings, web_strings
   ```
-  2）layout文件命名：  
-     Activity的layout以module_activity开头，例user_activity_user_info,web_activity_fab;  
-     Fragment的layout以module_fragment开头；  
-     Dialog的layout以module_dialog开头；  
-     include的layout以module_include开头；  
-     ListView的item layout以module_list_item开头；  
-     RecyclerView的item layout以module_recycler_item开头；  
-     GridView的item layout以module_grid_item开头。   
+  2）layout文件命名：
+  ```java
+  Activity的layout以module_activity开头，例user_activity_user_info,web_activity_fab;  
+  Fragment的layout以module_fragment开头；  
+  Dialog的layout以module_dialog开头；  
+  include的layout以module_include开头；  
+  ListView的item layout以module_list_item开头；  
+  RecyclerView的item layout以module_recycler_item开头；  
+  GridView的item layout以module_grid_item开头。   
+  ```
    3）drawable、mipmap等资源名称以小写单词+下划线的方式命名，规则如下：  
    模块名_业务功能描述_控件描述_控件状态限定词，例： 
    ```java
@@ -58,12 +60,12 @@
    ```
    8)string资源文件或者文本用到字符需要全部写入module_strings.xml文件中，字符串以小写单词+下划线方式命名，规则如下：  
      模块名_逻辑名称，如：  
-     ```java
-     login_logig_tips,home_homepage_notice_desc  
+   ```java
+   login_logig_tips,home_homepage_notice_desc
    ```
    9)Id资源原则上以驼峰法命名，View组件的资源id以View的缩写作为前缀，规则如下：  
      View组件缩写_逻辑名称,如： 
-     ```java
-     btn_login对应变量名btnLogin  
-     btn_register对应变量名btnRegister  
-     ```
+   ```java
+   btn_login对应变量名btnLogin  
+   btn_register对应变量名btnRegister  
+   ```
