@@ -81,6 +81,5 @@ UserCenterActivity，UploadImgFragment，ImgListAdapter，UploadFilesManager
    对应变量名
    ```java
    btnRegister  
-   ```
   
   
