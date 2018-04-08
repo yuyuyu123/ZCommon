@@ -34,7 +34,17 @@ public class App extends BaseApplication {
 # Fragment
 
 # Event Bus
-
+```java
+Activity中默认注册EventBus，Fragment中想要用EventBus,需要复写该方法：
+  @Override
+    protected boolean isBindEventBusHere() {
+        return true;
+    }
+```
+发送EventBus消息：
+```java
+EventBusHelper.post(new AppUpdateEvent());
+```
 # Net
 1.获取网络类型、判断网络是否可用等集合在NetworkUtils工具类中。
 2.网络状态变更时获取网络连接状态
@@ -109,8 +119,6 @@ loader.displayImg(imageView, path, new OnImgLoadListener() {
    }
  });
  ```
-# Utils
-
 # Fast Click
 快速点击处理
 1.用ViewClickUtils处理快速点击，间隔默认500ms，支持自定义时间，例：
@@ -232,4 +240,6 @@ private void uploadFiles(File[] files) {//上传单文件只需要写一个file�
 暂时只提供ACache这个类作轻量级的缓存，后续会引入接口缓存的方案
 # Animation
 暂时忽略
+# Utils
+ZCommon下面提供了许多有用的Utils，比如跟Log相关的L类，跟toast相关的T类等等，待进一步完善。
 
