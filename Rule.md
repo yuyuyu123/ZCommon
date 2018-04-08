@@ -5,9 +5,15 @@
 # 命名规范  
 约定：    
   1）所有资源的命名不允许使用中文拼音命名，除特殊名词和找不到对应英文翻译的名词外，例芝麻信用的芝麻，例我们公司的名字。    
-  2)   
-1.类的命名：功能+类的标识，例UserCenterActivity，UploadImgFragment，ImgListAdapter，UploadFilesManager等等。  
-2.资源文件的命名：  
+  2) 所有Activity和Fragment的变量部分必须按照如下格式分割:    
+     //Constant  
+       ...  
+     //UI  
+       ...  
+     //Data   
+       ...  
+1.类的命名：功能+类的标识，例UserCenterActivity，UploadImgFragment，ImgListAdapter，UploadFilesManager等等。  
+2.资源文件的命名：  
   1）资源文件：若是以模块为单位，需要带模块前缀，例user_strings, web_strings等；  
   2）layout文件命名：  
      Activity的layout以module_activity开头，例user_activity_user_info,web_activity_fab;  
@@ -38,12 +44,12 @@
 
    </style>  
    
-   8)string资源文件或者文本用到字符需要全部写入module_strings.xml文件中，字符串以小写单词+下划线方式命名，规则如下：
-     模块名_逻辑名称，如：
-     login_logig_tips,home_homepage_notice_desc
+   8)string资源文件或者文本用到字符需要全部写入module_strings.xml文件中，字符串以小写单词+下划线方式命名，规则如下：  
+     模块名_逻辑名称，如：  
+     login_logig_tips,home_homepage_notice_desc  
    
-   9)Id资源原则上以驼峰法命名，View组件的资源id以View的缩写作为前缀，规则如下：
-     View组件缩写_逻辑名称,如：
-     btn_login对应变量名btnLogin
-     btn_register对应变量名btnRegister
+   9)Id资源原则上以驼峰法命名，View组件的资源id以View的缩写作为前缀，规则如下：  
+     View组件缩写_逻辑名称,如：  
+     btn_login对应变量名btnLogin  
+     btn_register对应变量名btnRegister  
      
