@@ -82,3 +82,5 @@ UserCenterActivity，UploadImgFragment，ImgListAdapter，UploadFilesManager
    ```java
    btnRegister  
    ```
+  
+  
