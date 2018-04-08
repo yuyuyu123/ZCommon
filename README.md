@@ -110,7 +110,7 @@ protected void init(Bundle savedInstanceState) {
   //初始化，包括findViewById
 }
 ```
-3.Activity内创建Presenter
+3.Activity内创建Presenter  
 Activity或Fragment内需要创建Presenter需要复写createPresenter方法
 ```java
 @Override
@@ -121,14 +121,14 @@ protected SplashPresenter createPresenter() {
 4.加载列表
 参考内部App
 # Activity's Swipe Back
-Activity需要滑动返回效果时，可以创建一个基类用SwipeBackManager来设置相应的滑动返回参数。
-注：
-1.有地图的界面不允许设置滑动返回效果；
+Activity需要滑动返回效果时，可以创建一个基类用SwipeBackManager来设置相应的滑动返回参数。  
+注：  
+1.有地图的界面不允许设置滑动返回效果；  
 2.支持滑动切换多个Tab的界面不允许设置滑动返回。
 
-# Fragment
-1.基类和Activity类似；
-2.初始化提供两个方法：
+# Fragment  
+1.基类和Activity类似；  
+2.初始化提供两个方法：  
    1）初始化View
 ```java
 @Override
@@ -153,7 +153,7 @@ protected void initData() {
 ```
 3.设置布局文件和创建Presenter和Fragment类似
 
-4.处理back键
+4.处理back键  
 需要处理back键的Fragment首先需要实现IFragmentBackPressed接口，并复写其中的方法，例：
 ```java
 public class PhotoGalleryFragment extends Fragment implements IFragmentBackPressed {
@@ -186,10 +186,10 @@ Activity中默认注册EventBus，Fragment中想要用EventBus,需要复写该�
 EventBusHelper.post(new AppUpdateEvent());
 ```
 # Net
-1.获取网络类型、判断网络是否可用等集合在NetworkUtils工具类中。
-2.网络状态变更时获取网络连接状态
-  step1.让Activity实现NetChangeObserver接口，复写其中的方法
-  step2.在onResume和onPause方法中分别调用相应的注册方法和反注册方法：
+1.获取网络类型、判断网络是否可用等集合在NetworkUtils工具类中。  
+2.网络状态变更时获取网络连接状态  
+  step1.让Activity实现NetChangeObserver接口，复写其中的方法  
+  step2.在onResume和onPause方法中分别调用相应的注册方法和反注册方法：  
 ```java
 private void registerNetReceiver() {
   NetStateReceiver.registerObserver(this);
@@ -203,7 +203,7 @@ private void unRegisterNetReceiver() {
 ```
 
 # Image
-1.加载普通图片
+1.加载普通图片   
 无论是加载网络图片、File中的图片还是Asset资源中的图片，均可调用
 ```java 
 displayImg(ImageView imageView, String path)
@@ -227,7 +227,7 @@ loader.setResPlaceHolderId(R.mipmap.bg_img_load_failed);//设置加载中的占�
 loader.setResErrorId(R.mipmap.bg_img_load_failed);//设置加载错误时的占位图
 loader.displayImg(imageView, path);
 ```   
-3.加载圆形或圆角图片
+3.加载圆形或圆角图片  
   1）加载圆形图片：
 ```java
 ZImageLoader loader =  ZImageLoader.get(imageView.getContext());
@@ -259,8 +259,8 @@ loader.displayImg(imageView, path, new OnImgLoadListener() {
    }
  });
  ```
-# Fast Click
-快速点击处理
+# Fast Click  
+快速点击处理  
 1.用ViewClickUtils处理快速点击，间隔默认500ms，支持自定义时间，例：
 ```java
 @Override
@@ -333,11 +333,11 @@ private void downloadApk(String url) {
         retrofitDownloadManager.downloadFile(url);
     }
 ```
-注意，在Android7.0以上的手机，需要提供相应的provider文件，并在AndroidManifest文件中注册，具体可以参考我们的项目
-2.下载普通文件
-   下载普通文件和apk类似
+注意，在Android7.0以上的手机，需要提供相应的provider文件，并在AndroidManifest文件中注册，具体可以参考我们的项目。  
+2.下载普通文件  
+   下载普通文件和apk类似  
 # Upload
-支持上传单文件和多文件，例：
+支持上传单文件和多文件，例：   
 ```java
 private void uploadFiles(File[] files) {//上传单文件只需要写一个file即可
   Map<String, Object> map = new HashMap<>();
@@ -376,8 +376,8 @@ private void uploadFiles(File[] files) {//上传单文件只需要写一个file�
         retrofitUploadManager.uploadFiles(list);
     }
 ```
-# Cache
-暂时只提供ACache这个类作轻量级的缓存，后续会引入接口缓存的方案
+# Cache  
+暂时只提供ACache这个类作轻量级的缓存，后续会引入接口缓存的方案。  
 # Animation
 暂时忽略
 # Utils
