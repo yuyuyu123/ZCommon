@@ -11,19 +11,19 @@
 2.网络状态变更时获取网络连接状态
   step1.让Activity实现NetChangeObserver接口，复写其中的方法
   step2.在onResume和onPause方法中分别调用相应的注册方法和反注册方法：
-    ```
+  
+```java
     private void registerNetReceiver() {
         NetStateReceiver.registerObserver(this);
         NetStateReceiver.registerNetworkStateReceiver(this);
     }
-    ```
-    
-    ```
+
     private void unRegisterNetReceiver() {
         NetStateReceiver.removeRegisterObserver(this);
         NetStateReceiver.unRegisterNetworkStateReceiver(this);
     }
-    ```
+```
+
 # Image
 1.加载普通图片
 无论是加载网络图片、File中的图片还是Asset资源中的图片，统一调用displayImg(ImageView imageView, String path)方法，
