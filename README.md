@@ -28,7 +28,7 @@ public class App extends BaseApplication {
 } 
 ```
 # Activity
-建议所有的项目可以根据自己的需求写一到多个基类Activity，继承RxBaseActivity,例:
+建议所有的项目可以根据自己的需求写一到多个基类Activity，继承RxBaseActivity,例新建一个处理Umeng统计的基类:
 ```java
 public abstract class DkBaseActivity<V extends RxBaseView, P extends RxBasePresenter<V>>
     extends RxBaseActivity<V, P> {
@@ -48,10 +48,130 @@ public abstract class DkBaseActivity<V extends RxBaseView, P extends RxBasePrese
   }
 }
 ```
+例写一个处理滑动返回的基类：
+```java
+public abstract class DkBaseSwipeBackActivity<V extends RxBaseView, P extends RxBasePresenter<V>> extends DkBaseActivity<V,P> {
 
+    @Override
+    protected void init(Bundle savedInstanceState) {
+        super.init(savedInstanceState);
+
+        if(isSwipeBackEnabled()) {
+            SwipeBackManager.onCreate(this);
+            SwipeBackManager.getCurrentPage(this)//get current instance
+                    .setSwipeBackEnable(true)//on-off
+                    .setSwipeEdge(mScreenWidth / 5)
+                    .setSwipeEdgePercent(0.2f)
+                    .setSwipeSensitivity(0.6f)
+                    .setClosePercent(0.5f)
+                    .setSwipeRelateEnable(false)
+                    .setSwipeRelateOffset(500);
+        }
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        if(isSwipeBackEnabled()) {
+            SwipeBackManager.onPostCreate(this);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(isSwipeBackEnabled()) {
+            SwipeBackManager.onDestroy(this);
+        }
+    }
+}
+```
+
+1.setContentView
+当Activity需要setContentView时，可以复写下面两个方法：
+```java
+@Override
+protected abstract int getLayoutId() {
+   return R.layout.activity_home_layout;
+};
+
+@Override
+protected View getLayoutView() {
+   return new FrameLayout(this);
+}
+```
+如果复写了设置了getLayoutView方法，getLayoutId方法将失效。
+
+2.初始化数据
+```java
+@Override
+protected void init(Bundle savedInstanceState) {
+  super.init(savedInstanceState);
+  //初始化，包括findViewById
+}
+```
+3.Activity内创建Presenter
+Activity或Fragment内需要创建Presenter需要复写createPresenter方法
+```java
+@Override
+protected SplashPresenter createPresenter() {
+  return new SplashPresenter();
+}
+```
+4.加载列表
+参考内部App
 # Activity's Swipe Back
+Activity需要滑动返回效果时，可以创建一个基类用SwipeBackManager来设置相应的滑动返回参数。
+注：
+1.有地图的界面不允许设置滑动返回效果；
+2.支持滑动切换多个Tab的界面不允许设置滑动返回。
 
 # Fragment
+1.基类和Activity类似；
+2.初始化提供两个方法：
+   1）初始化View
+```java
+@Override
+protected void init(Bundle savedInstanceState, View view) {
+  super.init(savedInstanceState, view);
+  AppCompatImageView imgClose =  view.findViewById(R.id.id_img_close);
+  imgClose.setOnClickListener(v -> titleLeftClicked());
+}
+```
+    
+   2）初始化数据
+```java
+@Override
+protected void initData() {
+   super.initData();
+   final Bundle bundle = getArguments();
+   mOrderId = bundle.getLong("orderId", -1);
+   mCarLat = bundle.getDouble("carLat", 0d);
+   mCarLng = bundle.getDouble("carLng", 0d);
+   mIsLongOrder = bundle.getBoolean("isLongOrder", false);
+}
+```
+3.设置布局文件和创建Presenter和Fragment类似
+
+4.处理back键
+需要处理back键的Fragment首先需要实现IFragmentBackPressed接口，并复写其中的方法，例：
+```java
+public class PhotoGalleryFragment extends Fragment implements IFragmentBackPressed {
+    @Override
+    public void onFragmentBackPressed() {
+        //处理返回键
+    }
+}
+```
+然后在Fragment的宿主Activity中复写onBackPressed方法，如下：
+```java
+@Override
+public void onBackPressed() {
+  if (!FragmentBackManager.handleBackPress(this)) {
+      super.onBackPressed();
+  }
+}
+```
 
 # Event Bus
 ```java
