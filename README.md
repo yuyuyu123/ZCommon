@@ -13,15 +13,15 @@
   step2.在onResume和onPause方法中分别调用相应的注册方法和反注册方法：
   
 ```java
-    private void registerNetReceiver() {
-        NetStateReceiver.registerObserver(this);
-        NetStateReceiver.registerNetworkStateReceiver(this);
-    }
+private void registerNetReceiver() {
+  NetStateReceiver.registerObserver(this);
+  NetStateReceiver.registerNetworkStateReceiver(this);
+}
 
-    private void unRegisterNetReceiver() {
-        NetStateReceiver.removeRegisterObserver(this);
-        NetStateReceiver.unRegisterNetworkStateReceiver(this);
-    }
+private void unRegisterNetReceiver() {
+  NetStateReceiver.removeRegisterObserver(this);
+  NetStateReceiver.unRegisterNetworkStateReceiver(this);
+}
 ```
 
 # Image
