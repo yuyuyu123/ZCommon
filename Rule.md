@@ -14,7 +14,10 @@
      //Data   
        ... 
 ```
-1.类的命名：功能+类的标识，例UserCenterActivity，UploadImgFragment，ImgListAdapter，UploadFilesManager等等。   
+1.类的命名：功能+类的标识，例:
+```java
+UserCenterActivity，UploadImgFragment，ImgListAdapter，UploadFilesManager
+```
 2.资源文件的命名：    
   1）资源文件：若是以模块为单位，需要带模块前缀，例:
   ```java
@@ -35,8 +38,10 @@
    ```java
    user_login_btn_pressed,home_tabs_icon_home_normal 
    ```
-   如果没有具体的状态就省略状态限定词，例home_icon_gift  
-   
+   如果没有具体的状态就省略状态限定词，例
+   ```java
+   home_icon_gift  
+   ```
    4)anim资源以小写单词+下划线的方式命名，规则如下：  
    模块名_逻辑名称_[方向][序号]，例：
    ```java
@@ -54,9 +59,7 @@
    ```
    7）style资源采用“父style名称.当前Style名称”方式命名，写入module_styles.xml文件中，首字母大写，如：  
    ```xml
-   <style name="ParentTheme.CurrentTheme">
-
-   </style>  
+   <style name="ParentTheme.CurrentTheme"></style>  
    ```
    8)string资源文件或者文本用到字符需要全部写入module_strings.xml文件中，字符串以小写单词+下划线方式命名，规则如下：  
      模块名_逻辑名称，如：  
@@ -66,6 +69,16 @@
    9)Id资源原则上以驼峰法命名，View组件的资源id以View的缩写作为前缀，规则如下：  
      View组件缩写_逻辑名称,如： 
    ```java
-   btn_login对应变量名btnLogin  
-   btn_register对应变量名btnRegister  
+   btn_login
+   ```
+   对应变量名
+   ```java
+   btnLogin 
+   ```
+   ```java
+   btn_register
+   ```
+   对应变量名
+   ```java
+   btnRegister  
    ```
