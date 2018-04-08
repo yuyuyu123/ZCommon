@@ -12,7 +12,7 @@
        ...  
      //Data   
        ...  
-1.类的命名：功能+类的标识，例UserCenterActivity，UploadImgFragment，ImgListAdapter，UploadFilesManager等等。  
+1.类的命名：功能+类的标识，例UserCenterActivity，UploadImgFragment，ImgListAdapter，UploadFilesManager等等。   
 2.资源文件的命名：  
   1）资源文件：若是以模块为单位，需要带模块前缀，例user_strings, web_strings等；  
   2）layout文件命名：  
