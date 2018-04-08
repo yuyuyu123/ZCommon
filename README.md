@@ -5,13 +5,13 @@
 # Activity
 
 # Fragment
-
+``` private ImageView imageView; ```
 # Net
 1.获取网络类型、判断网络是否可用等集合在NetworkUtils工具类中。
 2.网络状态变更时获取网络连接状态
   step1.让Activity实现NetChangeObserver接口，复写其中的方法
   step2.在onResume和onPause方法中分别调用相应的注册方法和反注册方法：
-    ```
+    
     private void registerNetReceiver() {
         NetStateReceiver.registerObserver(this);
         NetStateReceiver.registerNetworkStateReceiver(this);
