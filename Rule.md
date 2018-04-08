@@ -69,17 +69,8 @@ UserCenterActivity，UploadImgFragment，ImgListAdapter，UploadFilesManager
    9)Id资源原则上以驼峰法命名，View组件的资源id以View的缩写作为前缀，规则如下：  
      View组件缩写_逻辑名称,如： 
    ```java
-   btn_login
+   btn_login, btn_register
    ```
-   对应变量名
-   ```java
-   btnLogin 
-   ```
-   ```java
-   btn_register
-   ```
-   对应变量名
-   ```java
-   btnRegister  
+
   
   
