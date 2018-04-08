@@ -11,7 +11,6 @@
 2.网络状态变更时获取网络连接状态
   step1.让Activity实现NetChangeObserver接口，复写其中的方法
   step2.在onResume和onPause方法中分别调用相应的注册方法和反注册方法：
-  
 ```java
 private void registerNetReceiver() {
   NetStateReceiver.registerObserver(this);
@@ -64,7 +63,7 @@ loader.setRoundingRadius(20);
 loader.displayImg(imageView, path);
 ```
      
-4.加载图片需要监听
+4.加载图片支持设置回调
 ```java
 ZImageLoader loader =  ZImageLoader.get(imageView.getContext());
 loader.setType(ZImageLoader.IMG_TYPE.ROUND_CORNER);
@@ -78,7 +77,7 @@ loader.displayImg(imageView, path, new OnImgLoadListener() {
    @Override
    public void onLoadFailure(Exception e) {
      //图片加载失败
-    }
+   }
  });
  ```
 # Utils
@@ -111,7 +110,7 @@ private FastClickAgent mFastClickListener = new FastClickAgent(view -> {
 
   } else if(id == R.id.id_btn_log_out) {
            
-        }
+  }
 });
 view.setOnClickListener(mFastClickListener);
 ```  
