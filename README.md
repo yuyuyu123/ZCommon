@@ -3,7 +3,7 @@
 [![](https://jitpack.io/v/yuyuyu123/ZCommon.svg)](https://jitpack.io/#yuyuyu123/ZCommon)
 
 # Crash Handler
-为了防止项目出现bug崩溃，可以在自定义Application中使用CrashHandler类，例：
+为了防止NullPointerException等Bug导致程序崩溃，可以在自定义Application中使用CrashHandler类，例：
 ```java
 public class App extends BaseApplication {
 
