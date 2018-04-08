@@ -5,9 +5,7 @@
 # Activity
 
 # Fragment
-'''java
-private ImageView imageView;
-'''
+
 # Net
 1.获取网络类型、判断网络是否可用等集合在NetworkUtils工具类中。
 2.网络状态变更时获取网络连接状态
