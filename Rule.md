@@ -27,7 +27,7 @@
      include的layout以module_include开头；  
      ListView的item layout以module_list_item开头；  
      RecyclerView的item layout以module_recycler_item开头；  
-     GridView的item layout以module_grid_item开头。
+     GridView的item layout以module_grid_item开头。   
    3）drawable、mipmap等资源名称以小写单词+下划线的方式命名，规则如下：  
    模块名_业务功能描述_控件描述_控件状态限定词，例： 
    ```java
