@@ -11,12 +11,13 @@
 2.网络状态变更时获取网络连接状态
   step1.让Activity实现NetChangeObserver接口，复写其中的方法
   step2.在onResume和onPause方法中分别调用相应的注册方法和反注册方法：
-    
-    private void registerNetReceiver() {
+    ```java
+    private void registerNetReceiver() {
         NetStateReceiver.registerObserver(this);
         NetStateReceiver.registerNetworkStateReceiver(this);
     }
-
+    ```
+    ```java
     private void unRegisterNetReceiver() {
         NetStateReceiver.removeRegisterObserver(this);
         NetStateReceiver.unRegisterNetworkStateReceiver(this);
