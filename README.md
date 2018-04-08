@@ -2,9 +2,38 @@
 
 [![](https://jitpack.io/v/yuyuyu123/ZCommon.svg)](https://jitpack.io/#yuyuyu123/ZCommon)
 
+# Crash Handler
+为了防止项目出现bug崩溃，可以在自定义Application中使用CrashHandler类，例：
+```java
+public class App extends BaseApplication {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        initCrashHandler();
+        
+    }
+    
+    private void initCrashHandler() {
+        CrashHandler.init((thread, throwable) -> {
+            new Handler(Looper.getMainLooper()).post(() -> {
+                try {
+                    //处理错误，可以上报，也可以不处理
+                } catch (Throwable e) {
+
+                }
+            });
+        });
+    }
+} 
+```
 # Activity
 
+# Activity's Swipe Back
+
 # Fragment
+
+# Event Bus
 
 # Net
 1.获取网络类型、判断网络是否可用等集合在NetworkUtils工具类中。
@@ -105,27 +134,102 @@ public void onClick(View v) {
 private FastClickAgent mFastClickListener = new FastClickAgent(view -> {
   final long id = view.getId();
   if(id == R.id.id_item_2) {
-        
-  } else if(id == R.id.id_item_3) {
-
-  } else if(id == R.id.id_btn_log_out) {
-           
-  }
+     //具体的点击事件
+  }
 });
 view.setOnClickListener(mFastClickListener);
 ```  
-# Activity's Swipe Back
-
-# Crash Handler
-
-# Cache
-
-# Animation
 
 # Download
+1.下载apk文件，示例：
+```java
+private void downloadApk(String url) {
+  File savingFile = new File(getExternalFilesDir(null) + File.separator + "rainbow.apk");
+  RetrofitDownloadConfig retrofitDownloadConfig = new RetrofitDownloadConfig.Builder(this)
+     .setSavingFile(savingFile)//设置保存的文件
+     .setNotification(null)//通知栏显示下载进度，没有设置为null
+     .setPackageName(getPackageName())//下载apk文件需要安装时建议手动设置包名，当然也可以不设置
+     .setAutoInstallApk(true)//是否自动安装apk
+     .setRetrofitDownloadAdapter(new RetrofitDownloadAdapter() {//下载进度监听
+          @Override
+          public void onDownloading(int code, String message, long fileTotalSize, long fileSizeDownloaded) {
+             super.onDownloading(code, message, fileTotalSize, fileSizeDownloaded);
+             if (fileTotalSize <= 0) return;
+               final int percent = (int) ((fileSizeDownloaded * 1.f / fileTotalSize) * 100);
+               showDownloadProgressDialog(percent);
+             }
 
+           @Override
+           public void onDownloadSuccess(int code, String message) {
+              //下载成功
+              super.onDownloadSuccess(code, message);
+              dismissDownloadProgressDialog();
+           }
 
+            @Override
+            public void onDownloadFailure(int code, String message) {
+                //下载失败
+                super.onDownloadFailure(code, message);
+                dismissDownloadProgressDialog();
+                T.showShort(HomeActivity.this, getStringResource(R.string.download_failure) + ":" + message);
+            }
+
+            @Override
+            public void onDownloadError(Throwable t) {
+                //下载出错
+                super.onDownloadError(t);
+                dismissDownloadProgressDialog();
+             }
+            }).build();
+        RetrofitDownloadManager retrofitDownloadManager = new RetrofitDownloadManager(retrofitDownloadConfig);
+        retrofitDownloadManager.downloadFile(url);
+    }
+```
+注意，在Android7.0以上的手机，需要提供相应的provider文件，并在AndroidManifest文件中注册，具体可以参考我们的项目
+2.下载普通文件
+   下载普通文件和apk类似
 # Upload
+支持上传单文件和多文件，例：
+```java
+private void uploadFiles(File[] files) {//上传单文件只需要写一个file即可
+  Map<String, Object> map = new HashMap<>();
+  map.put("app", URLHelper.IMG_APP_VALUE);
+  map.put("key", URLHelper.IMG_KEY_VALUE);
+  Map<String, Object> paramMap = new HashMap<>();
+  paramMap.put("json", new Gson().toJson(map).toString());//上传的参数
+  RetrofitUploadConfig retrofitUploadConfig = new RetrofitUploadConfig.Builder(context)
+    .setUploadUrl(URLHelper.IMG_SERVER).setParamsMap(paramMap).setFileKey("file")
+    .setDescriptionString("image for getting evidence")
+    .setRetrofitUploadAdapter(new RetrofitUploadAdapter<PhotoModel>() {
+         @Override
+         public void onUploadSuccess(int code, PhotoModel bean, boolean allFinished) {
+                //上传成功
+         }
 
-# Event Bus
+         @Override
+         public void onUploadFailure(int code, String message, boolean allFinished) {
+               //上传失败
+         }
+
+         @Override
+         public void onUploadError(Throwable t, boolean allFinished) {
+               //上传发生错误
+         }
+                }).build();
+        List<File> list = new ArrayList<>();
+        for (File file : files) {
+            if (null == file) {
+                continue;
+            }
+            list.add(file);
+        }
+        RetrofitUploadManager retrofitUploadManager = new RetrofitUploadManager
+                (retrofitUploadConfig);
+        retrofitUploadManager.uploadFiles(list);
+    }
+```
+# Cache
+暂时只提供ACache这个类作轻量级的缓存，后续会引入接口缓存的方案
+# Animation
+暂时忽略
 
