@@ -28,6 +28,26 @@ public class App extends BaseApplication {
 } 
 ```
 # Activity
+建议所有的项目可以根据自己的需求写一到多个基类Activity，继承RxBaseActivity,例:
+```java
+public abstract class DkBaseActivity<V extends RxBaseView, P extends RxBasePresenter<V>>
+    extends RxBaseActivity<V, P> {
+
+  @Override
+  protected void onResume() {
+    super.onResume();
+    MobclickAgent.onPageStart(TAG);
+    MobclickAgent.onResume(this);
+  }
+
+  @Override
+  protected void onPause() {
+    super.onPause();
+    MobclickAgent.onPageEnd(TAG);
+    MobclickAgent.onPause(this);
+  }
+}
+```
 
 # Activity's Swipe Back
 
@@ -243,3 +263,4 @@ private void uploadFiles(File[] files) {//上传单文件只需要写一个file�
 # Utils
 ZCommon下面提供了许多有用的Utils，比如跟Log相关的L类，跟toast相关的T类等等，待进一步完善。
 
+# Thanks
