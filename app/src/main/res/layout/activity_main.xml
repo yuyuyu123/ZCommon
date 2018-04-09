@@ -4,11 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
     tools:context="com.zcommon.simple.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:onClick="takePhoto"
+        android:text="TakePhoto" />
 
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="50dp"
+        android:background="#33ffff00"
+        />
 </LinearLayout>
