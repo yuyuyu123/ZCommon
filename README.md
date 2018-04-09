@@ -408,7 +408,7 @@ private void uploadFiles(File[] files) {//上传单文件只需要写一个file�
         }
     }
 ```
-注意：     
+注意:  
 1.需要在AndroidManifest中注册CameraAndPictureActivity，并设置为透明主题；  
 2.CameraAndPictureActivity内已经对6.0权限作了适配，但推荐在外部申请好相应的权限之后在调用；   
 3.拍摄单个图片可以不传图片名，但拍摄多张图片时必须传入图片名以作区分；    
