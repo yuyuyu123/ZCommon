@@ -376,7 +376,44 @@ private void uploadFiles(File[] files) {//上传单文件只需要写一个file�
         retrofitUploadManager.uploadFiles(list);
     }
 ```
-# Cache  
+# Camera And Choose Local Picture  
+1.拍照  
+```java
+ startActivityForResult(CameraAndPictureActivity.newIntent(this, CameraAndPictureActivity.TYPE_TAKING_PHOTO, "hello"), 1);
+ ```
+2.拍照并裁剪   
+```java
+ startActivityForResult(CameraAndPictureActivity.newIntent(this, CameraAndPictureActivity.TYPE_TAKING_PHOTO_AND_CROP, "hello"), 1);
+ ```
+3.选择图片  
+```
+ startActivityForResult(CameraAndPictureActivity.newIntent(this, CameraAndPictureActivity.TYPE_CHOOSING_IMG, "hello"), 1);
+```
+4.选择图片并裁剪  
+```
+ startActivityForResult(CameraAndPictureActivity.newIntent(this, CameraAndPictureActivity.TYPE_CHOOSING_IMG_AND_CROP, "hello"), 1);
+```
+5.接收数据  
+```
+  @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(data == null) {
+            return;
+        }
+        if(requestCode == 1) {
+            final String path = data.getStringExtra("path");
+            Bitmap bitmap = BitmapFactory.decodeFile(path);
+            img.setImageBitmap(bitmap);
+        }
+    }
+```
+注意：     
+1.需要在AndroidManifest中注册CameraAndPictureActivity，并设置为透明主题；  
+2.CameraAndPictureActivity内已经对6.0权限作了适配，但推荐在外部申请好相应的权限之后在调用；   
+3.拍摄单个图片可以不传图片名，但拍摄多张图片时必须传入图片名以作区分；    
+4.对于Android7.0需要提供相应的provider文件，具体参考Simple或内部App。 
+# Cache  
 暂时只提供ACache这个类作轻量级的缓存，后续会引入接口缓存的方案。  
 # Animation
 暂时忽略
