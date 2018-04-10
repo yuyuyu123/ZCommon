@@ -62,8 +62,6 @@ public abstract class BaseActivity<V extends BaseView, T extends BasePresenter<V
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //记录创建时间，用于异常终止时判断是否需要等待一段时间再终止，因为时间过短的话体验不好
-        //createTime = System.currentTimeMillis();
         ActivityManagerHelper.getManager().addActivity(this);
         //如果需要去掉标题栏
         if (isRemoveTitleBar()) requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -78,7 +76,7 @@ public abstract class BaseActivity<V extends BaseView, T extends BasePresenter<V
         } else {
             setContentView(getLayoutView());
         }
-        StatusBarUtil.showStatusBarWithLightMode(this, R.color.material_light_white);
+//        StatusBarUtil.showStatusBarWithLightMode(this, R.color.material_light_white);
         dynamicAddView();
 
         presenter = createPresenter();
@@ -90,14 +88,7 @@ public abstract class BaseActivity<V extends BaseView, T extends BasePresenter<V
         mScreenDensity = displayMetrics.density;
         mScreenHeight = displayMetrics.heightPixels;
         mScreenWidth = displayMetrics.widthPixels;
-
         EventBusHelper.register(this);
-
-        // 是否开启竖屏显示
-        if (ConfigurationHelper.getScreenPortrait()) {
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        }
-
         init(savedInstanceState);
     }
 
