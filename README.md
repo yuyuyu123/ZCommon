@@ -27,6 +27,20 @@ public class App extends BaseApplication {
     }
 } 
 ```
+# Status Bar
+ZCommon中提供了状态栏适配的Util叫StatusBarUtil，建议在基类里面作统一适配，例：
+```java
+public abstract class DkBaseActivity<V extends RxBaseView, P extends RxBasePresenter<V>>
+    extends RxBasePermissionActivity<V, P> {
+
+
+  @Override
+  protected void init(Bundle savedInstanceState) {
+    super.init(savedInstanceState);
+    StatusBarUtil.showStatusBarWithLightMode(this, com.ccclubs.common.R.color.material_light_white);
+  }
+}
+```
 # Activity
 建议在业务baseLib中可以根据自己的需求写一到多个基类Activity，继承RxBaseActivity或者RxBasePermissionActivity（封装了权限请求）,例新建一个处理Umeng统计的基类:
 ```java
