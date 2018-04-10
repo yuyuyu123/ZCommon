@@ -1,7 +1,17 @@
 # ZCommon
 
 [![](https://jitpack.io/v/yuyuyu123/ZCommon.svg)](https://jitpack.io/#yuyuyu123/ZCommon)
-
+# Dependency
+Step1:在根目录.build文件下添加 
+```gradle
+repositories {
+  maven { url "https://jitpack.io" }
+}
+```
+Step2：在具体项目.build目录下添加
+```gradle
+compile 'com.github.yuyuyu123:ZCommon:1.0.5'
+```
 # Crash Handler
 为了防止NullPointerException等Bug导致程序崩溃，可以在自定义Application中使用CrashHandler类，例：
 ```java
