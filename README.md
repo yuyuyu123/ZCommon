@@ -28,7 +28,7 @@ public class App extends BaseApplication {
 } 
 ```
 # Activity
-建议所有的项目可以根据自己的需求写一到多个基类Activity，继承RxBaseActivity,例新建一个处理Umeng统计的基类:
+建议在业务baseLib中可以根据自己的需求写一到多个基类Activity，继承RxBaseActivity或者RxBasePermissionActivity（封装了权限请求）,例新建一个处理Umeng统计的基类:
 ```java
 public abstract class DkBaseActivity<V extends RxBaseView, P extends RxBasePresenter<V>>
     extends RxBaseActivity<V, P> {
@@ -172,7 +172,41 @@ public void onBackPressed() {
   }
 }
 ```
+# Android M权限适配
+1.Activity申请权限   
+1）申请单个权限
+Activity若需要申请权限，需要继承RxBasePermissionActivity，例：
+```java
+public class SplashActivity extends RxBasePermissionActivityimplements RxBasePermissionActivity.OnSinglePermissionRequestCallBack {
+  @Override
+  protected void onStart() {
+    super.onStart();
+    if (dealWithPermission(android.Manifest.permission.ACCESS_FINE_LOCATION, “被拒绝后的提示”)){
+        //如果权限已经通过dealWithPermission方法会返回true
+    }
+  }
+    
+  @Override
+  public void onPermissionAllowed(String permission) {//权限申请通过回调
+    if (permission.equals(android.Manifest.permission.ACCESS_FINE_LOCATION)) {
+       //定位权限被打开
+    }
+  }
 
+    @Override
+    public void onPermissionDenied(String permission) {//权限被拒绝回调
+        if( !shouldShowPermissionRationale(permission)) {
+            String permissionTip = "您拒绝了定位权限，将无法正常使用App，请前往\"权限管理\"界面手动允许定位权限。";
+        } else {
+            finish();
+        }
+    }
+}
+```
+2）申请多个权限     
+申请多个权限和单个权限类似，参考内部App   
+2.Fragment申请权限   
+Fragment申请权限和Activity类似，只要继承RxBasePermissionFragment并实现OnSinglePermissionRequestCallBack或OnMultiPermissionRequestCallBack接口并实现其中的方法即可。
 # Event Bus
 ```java
 Activity中默认注册EventBus，Fragment中想要用EventBus,需要复写该方法：
