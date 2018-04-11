@@ -217,8 +217,7 @@ public class CameraAndPictureActivity extends AppCompatActivity implements
      * Get picture from local.
      */
     private void getPictureFromLocal() {
-        Intent innerIntent =
-                new Intent(Intent.ACTION_GET_CONTENT);
+        Intent innerIntent = new Intent(Intent.ACTION_PICK);
         innerIntent.setType("image/*");
         Intent wrapperIntent = Intent.createChooser(innerIntent, null);
         startActivityForResult(wrapperIntent, REQUEST_CODE_SELECT_PHOTO_FROM_LOCAL);
