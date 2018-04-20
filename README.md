@@ -52,7 +52,7 @@ TwoService service2 = ManagerFactory.getFactory().getManager(TwoService.class, k
   2.多个base url的使用必须传key区分，对应设置base url map;   
   3.上面只是罗列了要点，具体使用可以参考内部app。   
 # Request Logging
-如果需要打印网络请求，建议用OkHttp3提供的拦截器HttpLoggingInterceptor,只需要在请求前配置即，例：
+如果需要打印网络请求，建议用OkHttp3提供的拦截器HttpLoggingInterceptor,只需要在请求前配置即可，例：
 ```java
 HttpLoggingInterceptor logging = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
             @Override
