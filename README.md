@@ -12,6 +12,69 @@ Step2：在具体项目.build目录下添加
 ```gradle
 compile 'com.github.yuyuyu123:ZCommon:1.0.5'
 ```
+# Data Requests   
+1.约定：数据请求一律采用RxJava+Retrofit  
+2.配置
+  1.请求单个base url
+```java
+ConfigurationHelper.setBaseUrl(URLHelper.BASE_URL);
+ConfigurationHelper.setOkhttpClient(okHttpClient);
+``` 
+  2.请求多个base url
+```java
+Map<String , String> baseUrlMap = new HashMap<>();
+String url1 = "";
+String url2 = "";
+baseUrlMap.put(key1, url1);
+baseUrlMap.put(key2, url2);
+ConfigurationHelper.setBaseUrlMap(baseUrlMap);
+
+Map<String,OkHttpClient> clientMap = new HashMap<>();
+clientMap.put(key1, okHttpClient1);
+clientMap.put(key2, okHttpClient2);
+ConfigurationHelper.setOkhttpClientMap(clientMap);
+``` 
+  说明:    
+  1.虽然多个base url可以共用一个OkHttpClient对象，但是为了适应不同的配置，即使是相同的OkHttpClient也要放进Map中；   
+  2.设置base url的map和设置client的key必须一一对应。    
+3.使用
+  1.请求单个base url
+```java
+BaiduService service = ManagerFactory.getFactory().getManager(BaiduService.class);
+```
+  2.请求多个base url
+```java
+OneService service1 = ManagerFactory.getFactory().getManager(OneService.class, key1);
+TwoService service2 = ManagerFactory.getFactory().getManager(TwoService.class, key2);
+```
+  说明:     
+  1.单个base url的使用可以不传key，对应只设置base url;   
+  2.多个base url的使用必须传key区分，对应设置base url map;   
+  3.上面只是罗列了要点，具体使用可以参考内部app。   
+# Request Logging
+如果需要打印网络请求，建议用OkHttp3提供的拦截器HttpLoggingInterceptor,只需要在请求前配置即，例：
+```java
+HttpLoggingInterceptor logging = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
+            @Override
+            public void log(String message) {
+                Log.d("okhttp", message);
+            }
+        });
+logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
+new OkHttpClient
+  .Builder()
+  .addInterceptor(logging);
+```
+
+# Https
+OkHttp支持Http和Https两种协议的请求，只需要在请求前用ZCommon内的HttpsUtils配置一下即可，例：
+```java
+HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(null, null, null);
+new OkHttpClient
+  .Builder()
+  .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager);
+```
+
 # Crash Handler
 为了防止NullPointerException等Bug导致程序崩溃，可以在自定义Application中使用CrashHandler类，例：
 ```java
