@@ -3,7 +3,7 @@ package com.cc.android.zcommon.support;
 import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 
-import com.ccclubs.common.api.RetrofitFactory;
+import com.cc.android.zcommon.api.RetrofitFactory;
 
 import java.util.Map;
 

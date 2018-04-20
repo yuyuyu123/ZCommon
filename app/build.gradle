@@ -29,5 +29,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile project(':zcommon')
-//    compile 'com.github.yuyuyu123:ZCommon:1.0.5'
+//    compile 'com.github.yuyuyu123:ZCommon:1.0.7'
 }

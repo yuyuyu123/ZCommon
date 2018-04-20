@@ -3,7 +3,6 @@ package com.cc.android.zcommon.api;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
-import com.ccclubs.common.support.ConfigurationHelper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +14,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * 用于获取配置好的retrofit对象, 通过设置{@link ConfigurationHelper#enableLoggingNetworkParams()}来启用网络请求
+ * 用于获取配置好的retrofit对象, 通过设置{@link com.cc.android.zcommon.support.ConfigurationHelper#enableLoggingNetworkParams()}来启用网络请求
  * 参数与相应结果.
  * <br/>
  * TODO:<ul><li>1、如果有多个baseUrl</li><li>2、需要定制化OkHttpclent，如加入session id 等</li></ul>
