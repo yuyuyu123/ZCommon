@@ -1,5 +1,7 @@
 package com.cc.android.zcommon.api;
 
+import android.text.TextUtils;
+
 import java.util.HashMap;
 
 import retrofit2.Converter;
@@ -30,6 +32,18 @@ public class ManagerFactory {
     return (T) service;
   }
 
+  public <T> T getManager(Class<T> clz, String key) {
+    if(TextUtils.isEmpty(key)) {
+      throw new NullPointerException("the key to get " + clz.getSimpleName() + " service cannot be null");
+    }
+    Object service = serviceMap.get(clz.getName());
+    if (service == null) {
+      service = RetrofitFactory.getRetrofit(key).create(clz);
+      serviceMap.put(clz.getName(), service);
+    }
+    return (T) service;
+  }
+
   public <T> T getManager(Class<T> clz, Converter.Factory factory) {
     Object service = serviceMap.get(clz.getName());
     if (service == null) {
@@ -38,4 +52,5 @@ public class ManagerFactory {
     }
     return (T) service;
   }
+
 }

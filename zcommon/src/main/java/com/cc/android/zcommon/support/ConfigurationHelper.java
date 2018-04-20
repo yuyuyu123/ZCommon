@@ -3,8 +3,9 @@ package com.cc.android.zcommon.support;
 import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 
+import com.ccclubs.common.api.RetrofitFactory;
 
-import com.cc.android.zcommon.api.RetrofitFactory;
+import java.util.Map;
 
 import okhttp3.OkHttpClient;
 
@@ -98,10 +99,18 @@ public class ConfigurationHelper {
     RetrofitFactory.setBaseUrl(baseUrl);
   }
 
+  public static void setBaseUrlMap(@NonNull Map<String, String> map) {
+    RetrofitFactory.setBaseUrlMap(map);
+  }
+
   /**
    * 设置OkHttpClient
    */
   public static void setOkhttpClient(@NonNull OkHttpClient client) {
     RetrofitFactory.setOkhttpClient(client);
+  }
+
+  public static void setOkhttpClientMap(@NonNull Map<String, OkHttpClient> map) {
+    RetrofitFactory.setOkhttpClientMap(map);
   }
 }
