@@ -259,7 +259,7 @@ public void onBackPressed() {
   }
 }
 ```
-# Android M权限适配
+# Permissions for Android M
 1.Activity申请权限   
 1）申请单个权限
 Activity若需要申请权限，需要继承RxBasePermissionActivity，例：
