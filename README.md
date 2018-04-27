@@ -14,7 +14,7 @@ compile 'com.github.yuyuyu123:ZCommon:1.0.7.1'
 ```
 # Data Requests   
 1.约定：数据请求一律采用RxJava+Retrofit  
-2.配置
+2.配置   
   1.请求单个base url
 ```java
 ConfigurationHelper.setBaseUrl(URLHelper.BASE_URL);
