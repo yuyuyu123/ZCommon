@@ -36,8 +36,8 @@ ConfigurationHelper.setOkhttpClientMap(clientMap);
 ``` 
   说明:    
   1.虽然多个base url可以共用一个OkHttpClient对象，但是为了适应不同的配置，即使是相同的OkHttpClient也要放进Map中；   
-  2.设置base url的map和设置client的key必须一一对应。    
-3.使用
+  2.设置base url的map和设置client的key必须一一对应   
+  3.使用   
   1.请求单个base url
 ```java
 BaiduService service = ManagerFactory.getFactory().getManager(BaiduService.class);
