@@ -16,7 +16,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-import com.ccclubs.common.R;
+import com.cc.android.zcommon.R;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
