@@ -410,10 +410,10 @@ view.setOnClickListener(mFastClickListener);
 ```  
 
 # SQLite
-ZCommon中提供了SQLite的帮助类来实现数据的持久化存储，支持直接以Model的方式存储和获取。
-1.使用前提：用于存储和读取的Model类必须继续ZCommon中的BaseModel。
-2.使用步骤：
-  1）调用ZDbConfigHelper类来对数据库名称和数据库版本号，以及相应的表和对应的列进行初始化，示例：
+ZCommon中提供了SQLite的帮助类来实现数据的持久化存储，支持直接以Model的方式存储和获取。   
+1.使用前提：用于存储和读取的Model类必须继续ZCommon中的BaseModel。   
+2.使用步骤：  
+  1）调用ZDbConfigHelper类来对数据库名称和数据库版本号，以及相应的表和对应的列进行初始化，示例：   
  ```java
  //初始化数据库名
 ZDbConfigHelper.getInstance(this).setDatabaseName(TablesHelper.DATABASE_NAME);
@@ -439,7 +439,7 @@ searchColumns.add(TablesHelper.USER_SEARCH_ADDRESS + ZDbConfigHelper.TEXT_TYPE);
 searchColumns.add(TablesHelper.USER_SEARCH_NAME + ZDbConfigHelper.TEXT_TYPE);
 ZDbConfigHelper.getInstance(this).addTable(TablesHelper.USER_SEARCH_TABLE, searchColumns);
 ```  
-  2）编写具体的Dao类来对数据库进行操作，师例如下：
+  2）编写具体的Dao类来对数据库进行操作，师例如下：   
  ```java
 public class SearchDao implements ISearchDao{
 
