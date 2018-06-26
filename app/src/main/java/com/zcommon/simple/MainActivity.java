@@ -25,10 +25,15 @@ public class MainActivity extends RxBasePermissionActivity implements  RxBasePer
 
     }
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected void init(Bundle savedInstanceState) {
+        super.init(savedInstanceState);
         img = findViewById(R.id.img);
     }
 
