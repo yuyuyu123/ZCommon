@@ -10,7 +10,7 @@ repositories {
 ```
 Step2：在具体项目.build目录下添加
 ```gradle
-compile 'com.github.yuyuyu123:ZCommon:1.0.7.3'
+implemention 'com.github.yuyuyu123:ZCommon:1.2.0'
 ```
 # Data Requests   
 1.约定：数据请求一律采用RxJava+Retrofit  
@@ -409,9 +409,61 @@ private FastClickAgent mFastClickListener = new FastClickAgent(view -> {
 view.setOnClickListener(mFastClickListener);
 ```  
 
+# SQLite
+ZCommon中提供了SQLite的帮助类来实现数据的持久化存储，支持直接以Model的方式存储和获取。
+1.使用前提：用于存储和读取的Model类必须继续ZCommon中的BaseModel。
+2.使用步骤：
+  1）调用ZDbConfigHelper类来对数据库名称和数据库版本号，以及相应的表和对应的列进行初始化，示例：
+ ```java
+ //初始化数据库名
+ZDbConfigHelper.getInstance(this).setDatabaseName(TablesHelper.DATABASE_NAME);
+//初始化数据库版本号
+ZDbConfigHelper.getInstance(this).setDatabaseVersion(TablesHelper.DATABASE_VERSION);
+//用户表
+List<String> userColumns = new ArrayList<>();
+//表的列名+列名对应的类型
+userColumns.add(TablesHelper.USER_CSM_ID + ZDbConfigHelper.TEXT_TYPE);
+userColumns.add(TablesHelper.USER_TOKEN + ZDbConfigHelper.TEXT_TYPE);
+userColumns.add(TablesHelper.USER_MOBILE + ZDbConfigHelper.TEXT_TYPE);
+userColumns.add(TablesHelper.USER_HEADER + ZDbConfigHelper.TEXT_TYPE);
+userColumns.add(TablesHelper.USER_NICKNAME + ZDbConfigHelper.TEXT_TYPE);
+userColumns.add(TablesHelper.USER_BALANCE + ZDbConfigHelper.TEXT_TYPE);
+//添加表，表名+所有的列
+ZDbConfigHelper.getInstance(this).addTable(TablesHelper.USER_INFO_TABLE, userColumns);
+//地址搜索表
+List<String> searchColumns = new ArrayList<>();
+searchColumns.add(TablesHelper.USER_SEARCH_DATE + ZDbConfigHelper.LONG_TYPE);
+searchColumns.add(TablesHelper.USER_SEARCH_LAT + ZDbConfigHelper.LONG_TYPE);
+searchColumns.add(TablesHelper.USER_SEARCH_LON + ZDbConfigHelper.DOUBLE_TYPE);
+searchColumns.add(TablesHelper.USER_SEARCH_ADDRESS + ZDbConfigHelper.TEXT_TYPE);
+searchColumns.add(TablesHelper.USER_SEARCH_NAME + ZDbConfigHelper.TEXT_TYPE);
+ZDbConfigHelper.getInstance(this).addTable(TablesHelper.USER_SEARCH_TABLE, searchColumns);
+```  
+  2）编写具体的Dao类来对数据库进行操作，师例如下：
+ ```java
+public class SearchDao implements ISearchDao{
+
+   @Override
+    public long insertData(UserSearchModel userSearchModel) {
+        if(userSearchModel == null || TextUtils.isEmpty(userSearchModel.search_addr)
+                || userSearchModel.search_lat == 0 || userSearchModel.search_lon == 0) {
+            Log.d(TAG, "the data to insert is invalid.");
+            return  -1;
+        }
+        if(isDataExisted(userSearchModel)) {
+            return ZDbDataHelper.getInstance().update(TablesHelper.USER_SEARCH_TABLE, TablesHelper.USER_SEARCH_ADDRESS + "=?", new String[]{userSearchModel.search_addr}, userSearchModel);
+        } else {
+           return ZDbDataHelper.getInstance().insert(TablesHelper.USER_SEARCH_TABLE, userSearchModel);
+        }
+    }
+  }
+```  
+具体用法可以参考内部App
+
 # Download
 1.下载apk文件，示例：
 ```java
+
 private void downloadApk(String url) {
   File savingFile = new File(getExternalFilesDir(null) + File.separator + "rainbow.apk");
   RetrofitDownloadConfig retrofitDownloadConfig = new RetrofitDownloadConfig.Builder(this)
@@ -453,6 +505,7 @@ private void downloadApk(String url) {
         RetrofitDownloadManager retrofitDownloadManager = new RetrofitDownloadManager(retrofitDownloadConfig);
         retrofitDownloadManager.downloadFile(url);
     }
+    
 ```
 注意，在Android7.0以上的手机，需要提供相应的provider文件，并在AndroidManifest文件中注册，具体可以参考我们的项目。  
 2.下载普通文件  
