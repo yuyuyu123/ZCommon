@@ -47,7 +47,7 @@ public class ZDbConfigHelper {
         if (null == sInstance) {
             synchronized (ZDbConfigHelper.class) {
                 sInstance = new ZDbConfigHelper(context);
-                ZDbHelper.setContext(context);
+                ZDbManager.setContext(context);
             }
         }
         return sInstance;

@@ -10,30 +10,30 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * ZDbHelper.
+ * ZDbManager.
  *
  * @Author:LiuLiWei
  */
-public final class ZDbHelper extends SQLiteOpenHelper {
+public final class ZDbManager extends SQLiteOpenHelper {
 
     private static Context sContext;
-    private static ZDbHelper sInstance = null;
+    private static ZDbManager sInstance = null;
 
     public static void setContext(Context context) {
         sContext = context;
     }
 
-    private ZDbHelper() {
+    private ZDbManager() {
         super(sContext, ZDbConfigHelper.getDatabaseName(), null, ZDbConfigHelper.getDatabaseVersion());
     }
 
-    public ZDbHelper(Context context) {
+    public ZDbManager(Context context) {
         super(context, ZDbConfigHelper.getDatabaseName(), null, ZDbConfigHelper.getDatabaseVersion());
     }
 
-    public static synchronized ZDbHelper getsInstance() {
+    public static synchronized ZDbManager getsInstance() {
         if (sInstance == null) {
-            sInstance = new ZDbHelper();
+            sInstance = new ZDbManager();
         }
         return sInstance;
     }

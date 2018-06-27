@@ -25,10 +25,10 @@ public final class ZDbDataHelper {
     private static final String ORDER_BY = " order by ";
 
     private static ZDbDataHelper sInstance = null;
-    private ZDbHelper mDbManager = null;
+    private ZDbManager mDbManager = null;
 
     private ZDbDataHelper() {
-        mDbManager = ZDbHelper.getsInstance();
+        mDbManager = ZDbManager.getsInstance();
     }
 
     public static ZDbDataHelper getInstance() {
