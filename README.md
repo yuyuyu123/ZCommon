@@ -187,7 +187,7 @@ protected View getLayoutView() {
    return new FrameLayout(this);
 }
 ```
-如果复写了设置了getLayoutView方法，getLayoutId方法将失效。
+如果复写了getLayoutView方法，getLayoutId方法将失效。
 
 2.初始化数据
 ```java
@@ -439,7 +439,7 @@ searchColumns.add(TablesHelper.USER_SEARCH_ADDRESS + ZDbConfigHelper.TEXT_TYPE);
 searchColumns.add(TablesHelper.USER_SEARCH_NAME + ZDbConfigHelper.TEXT_TYPE);
 ZDbConfigHelper.getInstance(this).addTable(TablesHelper.USER_SEARCH_TABLE, searchColumns);
 ```  
-  2）编写具体的Dao类来对数据库进行操作，师例如下：   
+  2）编写具体的Dao类来对数据库进行操作,示例如下：   
  ```java
 public class SearchDao implements ISearchDao{
 
