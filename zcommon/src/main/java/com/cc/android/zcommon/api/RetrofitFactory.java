@@ -21,6 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class RetrofitFactory {
     private static Retrofit mRetrofit;
+    private static Retrofit mRetrofitWithoutInterceptor;
     private static Map<String, Retrofit> mRetrofitMap = new HashMap<>();
 
     private static OkHttpClient mClient;
@@ -65,6 +66,24 @@ public class RetrofitFactory {
             mRetrofit = builder.build();
         }
         return mRetrofit;
+    }
+
+    public static Retrofit getRetrofit(boolean hasInterceptor) {
+        if (hasInterceptor) return getRetrofit();
+
+        if (mRetrofitWithoutInterceptor == null) {
+            if (baseUrl == null || baseUrl.length() <= 0) {
+                throw new IllegalStateException("请在调用getFactory之前先调用setBaseUrl");
+            }
+
+            Retrofit.Builder builder = new Retrofit.Builder();
+
+            builder.baseUrl(baseUrl)
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create());
+            mRetrofitWithoutInterceptor = builder.build();
+        }
+        return mRetrofitWithoutInterceptor;
     }
 
 

@@ -145,7 +145,7 @@ public class RetrofitDownloadManager {
      *      the instance of {@link RetrofitDownloadConfig}
      */
     public RetrofitDownloadManager(RetrofitDownloadConfig retrofitDownloadConfig) {
-        this.mService = ManagerFactory.getFactory().getManager(RetrofitDownloadService.class);
+        this.mService = ManagerFactory.getFactory().getManager(RetrofitDownloadService.class, false);
         this.mConfig = retrofitDownloadConfig;
         this.mContext = new WeakReference<>(mConfig.getContext());
         this.mAdapter = mConfig.getRetrofitDownloadAdapter();

@@ -578,21 +578,21 @@ public final class R {
         public static final int src_in = 0x7f0800c2;
         public static final int src_over = 0x7f0800c3;
         public static final int status_bar_latest_event_content = 0x7f0800c5;
-        public static final int submenuarrow = 0x7f0800c6;
-        public static final int submit_area = 0x7f0800c7;
-        public static final int tabMode = 0x7f0800c8;
-        public static final int text = 0x7f0800cb;
-        public static final int text2 = 0x7f0800cc;
-        public static final int textSpacerNoButtons = 0x7f0800cd;
-        public static final int time = 0x7f0800d2;
-        public static final int title = 0x7f0800d3;
-        public static final int title_template = 0x7f0800d6;
-        public static final int top = 0x7f0800d8;
-        public static final int topPanel = 0x7f0800d9;
-        public static final int up = 0x7f0800e1;
-        public static final int useLogo = 0x7f0800e2;
-        public static final int withText = 0x7f0800e6;
-        public static final int wrap_content = 0x7f0800e7;
+        public static final int submenuarrow = 0x7f0800c8;
+        public static final int submit_area = 0x7f0800c9;
+        public static final int tabMode = 0x7f0800ca;
+        public static final int text = 0x7f0800cd;
+        public static final int text2 = 0x7f0800ce;
+        public static final int textSpacerNoButtons = 0x7f0800cf;
+        public static final int time = 0x7f0800d4;
+        public static final int title = 0x7f0800d5;
+        public static final int title_template = 0x7f0800d8;
+        public static final int top = 0x7f0800da;
+        public static final int topPanel = 0x7f0800db;
+        public static final int up = 0x7f0800e3;
+        public static final int useLogo = 0x7f0800e4;
+        public static final int withText = 0x7f0800e8;
+        public static final int wrap_content = 0x7f0800e9;
     }
     public static final class integer {
         public static final int abc_config_activityDefaultDur = 0x7f090000;

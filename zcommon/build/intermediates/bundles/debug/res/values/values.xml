@@ -357,6 +357,8 @@
     <item name="search_book_contents_failed" type="id"/>
     <item name="search_book_contents_succeeded" type="id"/>
     <item name="split" type="id">false</item>
+    <item name="statusbarutil_fake_status_bar_view" type="id"/>
+    <item name="statusbarutil_translucent_view" type="id"/>
     <item name="tag_click" type="id">tag_click</item>
     <item name="toolbar" type="id"/>
     <item name="webview" type="id"/>

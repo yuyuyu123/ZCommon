@@ -93,7 +93,7 @@ public class RetrofitUploadManager {
         this.mConfig = retrofitUploadConfig;
         this.mContext = new WeakReference<>(retrofitUploadConfig.getContext());
         this.mAdapter = retrofitUploadConfig.getRetrofitUploadAdapter();
-        this.mService = ManagerFactory.getFactory().getManager(RetrofitUploadService.class);
+        this.mService = ManagerFactory.getFactory().getManager(RetrofitUploadService.class, false);
         this.mTotalFiles = 0;
         this.mCurrentFinishedFiles = 0;
 
@@ -243,7 +243,6 @@ public class RetrofitUploadManager {
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                Log.e("JP", "manager onResponse:" + response.message() );
                 mCurrentFinishedFiles++;
                 if (response != null) {
                     if(response.isSuccessful()) {

@@ -1,53 +1,53 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
-INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
-INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
-INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
-INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
-INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
-INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
+ADDED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
+INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
+INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
+INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
+INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
+INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
+INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
 	package
-		ADDED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml:2:5-37
-		INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml
-		INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml
+		ADDED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml:2:5-37
+		INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml
+		INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml
-		ADDED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
-		INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml
+		INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml
+		ADDED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
+		INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml
-		ADDED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
-		INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml
+		INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml
+		ADDED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
+		INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml:1:11-69
+		ADDED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml:1:11-69
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml:5:1-75
+ADDED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml:5:1-75
 	android:name
-		ADDED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml:5:18-72
+		ADDED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml:5:18-72
 uses-permission#android.permission.CHANGE_NETWORK_STATE
-ADDED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml:6:1-75
+ADDED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml:6:1-75
 	android:name
-		ADDED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml:6:18-72
+		ADDED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml:6:18-72
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml:7:1-72
+ADDED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml:7:1-72
 	android:name
-		ADDED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml:7:18-69
+		ADDED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml:7:18-69
 uses-permission#android.permission.CHANGE_WIFI_STATE
-ADDED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml:8:1-72
+ADDED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml:8:1-72
 	android:name
-		ADDED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml:8:18-69
+		ADDED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml:8:18-69
 uses-sdk
-INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml
-INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml
-INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml
-INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml
+INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml
+INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml
+INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml
+INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml
-		ADDED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml
-		INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml
+		INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml
+		ADDED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml
+		INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml
-		ADDED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml
-		INJECTED from E:\ZCommon\zcommon\src\main\AndroidManifest.xml
+		INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml
+		ADDED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml
+		INJECTED from E:\GitProject\ZCommon\zcommon\src\main\AndroidManifest.xml

@@ -1076,6 +1076,8 @@
     <item name="search_book_contents_succeeded" type="id"/>
     <item name="split" type="id">false</item>
     <item name="split_action_bar" type="id"/>
+    <item name="statusbarutil_fake_status_bar_view" type="id"/>
+    <item name="statusbarutil_translucent_view" type="id"/>
     <item name="tag_click" type="id">tag_click</item>
     <item name="tag_transition_group" type="id"/>
     <item name="text" type="id"/>

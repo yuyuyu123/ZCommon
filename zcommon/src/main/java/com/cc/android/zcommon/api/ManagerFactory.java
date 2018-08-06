@@ -24,9 +24,13 @@ public class ManagerFactory {
   }
 
   public <T> T getManager(Class<T> clz) {
+    return getManager(clz, true);
+  }
+
+  public <T> T getManager(Class<T> clz, boolean hasInterceptor) {
     Object service = serviceMap.get(clz.getName());
     if (service == null) {
-      service = RetrofitFactory.getRetrofit().create(clz);
+      service = RetrofitFactory.getRetrofit(hasInterceptor).create(clz);
       serviceMap.put(clz.getName(), service);
     }
     return (T) service;

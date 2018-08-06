@@ -100,12 +100,12 @@ public final class R {
         public static int right_icon = 0x7f0c008e;
         public static int right_side = 0x7f0c008f;
         public static int start = 0x7f0c00b3;
-        public static int tag_transition_group = 0x7f0c00b9;
-        public static int text = 0x7f0c00ba;
-        public static int text2 = 0x7f0c00bb;
-        public static int time = 0x7f0c00c1;
-        public static int title = 0x7f0c00c2;
-        public static int top = 0x7f0c00c7;
+        public static int tag_transition_group = 0x7f0c00bb;
+        public static int text = 0x7f0c00bc;
+        public static int text2 = 0x7f0c00bd;
+        public static int time = 0x7f0c00c3;
+        public static int title = 0x7f0c00c4;
+        public static int top = 0x7f0c00c9;
     }
     public static final class integer {
         public static int status_bar_notification_info_maxnum = 0x7f0d000c;
