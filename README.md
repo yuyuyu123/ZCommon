@@ -10,7 +10,7 @@ repositories {
 ```
 Step2：在具体项目.build目录下添加
 ```gradle
-implemention 'com.github.yuyuyu123:ZCommon:1.2.0'
+implemention 'com.github.yuyuyu123:ZCommon:1.2.1'
 ```
 # Data Requests   
 1.约定：数据请求一律采用RxJava+Retrofit  
