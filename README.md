@@ -10,8 +10,85 @@ repositories {
 ```
 Step2：在具体项目.build目录下添加
 ```gradle
-implemention 'com.github.yuyuyu123:ZCommon:1.2.1'
+implemention 'com.github.yuyuyu123:ZCommon:1.2.3'
 ```
+# AOP（面向切面）支持  
+ZCommon中添加了对Aspectj的依赖，支持AOP编程。   
+1.添加依赖  
+首先需要在根目录的build文件下添加依赖：
+```gradle
+  repositories {
+     google()
+  }
+  dependencies {
+     classpath 'org.aspectj:aspectjtools:1.9.1'
+     classpath 'org.aspectj:aspectjweaver:1.9.1'
+  }
+```
+然后在app目录的build文件下添加如下代码：
+```gradle
+import org.aspectj.bridge.IMessage
+import org.aspectj.bridge.MessageHandler
+import org.aspectj.tools.ajc.Main
+
+final def log = project.logger
+final def variants = project.android.applicationVariants
+
+variants.all { variant ->
+    if (!variant.buildType.isDebuggable()) {
+        log.debug("Skipping non-debuggable build type '${variant.buildType.name}'.")
+        return;
+    }
+
+    JavaCompile javaCompile = variant.javaCompile
+    javaCompile.doLast {
+        String[] args = ["-showWeaveInfo",
+                         "-1.8",
+                         "-inpath", javaCompile.destinationDir.toString(),
+                         "-aspectpath", javaCompile.classpath.asPath,
+                         "-d", javaCompile.destinationDir.toString(),
+                         "-classpath", javaCompile.classpath.asPath,
+                         "-bootclasspath", project.android.bootClasspath.join(File.pathSeparator)
+        ]
+        log.debug "ajc args: " + Arrays.toString(args)
+
+        MessageHandler handler = new MessageHandler(true);
+        new Main().run(args, handler);
+        for (IMessage message : handler.getMessages(null, true)) {
+            switch (message.getKind()) {
+                case IMessage.ABORT:
+                case IMessage.ERROR:
+                case IMessage.FAIL:
+                    log.error message.message, message.thrown
+                    break;
+                case IMessage.WARNING:
+                    log.warn message.message, message.thrown
+                    break;
+                case IMessage.INFO:
+                    log.info message.message, message.thrown
+                    break;
+                case IMessage.DEBUG:
+                    log.debug message.message, message.thrown
+                    break;
+            }
+        }
+    }
+}
+```   
+注：若网络比较慢，建议Fan Qiang（你懂得）依赖，否则可能会失败。
+2.使用  
+关于aspectj的具体使用方法请自行查找教程并学习
+
+3.ZCommon中提供的aspect功能  
+3.1 处理快速点击  
+若需要处理快速点击，只需要在对应的方法中添加@FastClick注解接口，例：  
+```java
+ @FastClick
+ public void fastClick(View view) {
+   Log.e(TAG, "fastClick-----------");
+ }
+``` 
+
 # Data Requests   
 1.约定：数据请求一律采用RxJava+Retrofit  
 2.配置   
