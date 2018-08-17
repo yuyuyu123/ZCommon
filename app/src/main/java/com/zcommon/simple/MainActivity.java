@@ -4,15 +4,19 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.cc.android.zcommon.aspect.TestAnnoTrace;
 import com.cc.android.zcommon.base.RxBasePermissionActivity;
 import com.cc.android.zcommon.img.CameraAndPictureActivity;
 
 
-public class MainActivity extends RxBasePermissionActivity implements  RxBasePermissionActivity.OnSinglePermissionRequestCallBack{
+public class MainActivity extends RxBasePermissionActivity
+        implements  RxBasePermissionActivity.OnSinglePermissionRequestCallBack{
 
+    private static final String TAG = "MainActivity";
     private ImageView img;
 
     @Override
@@ -52,5 +56,10 @@ public class MainActivity extends RxBasePermissionActivity implements  RxBasePer
             Bitmap bitmap = BitmapFactory.decodeFile(path);
             img.setImageBitmap(bitmap);
         }
+    }
+
+    @TestAnnoTrace(value = "test", type = 1)
+    public void testAop(View view) {
+        Log.e(TAG, "Hello, I am MainActivity");
     }
 }

@@ -9,10 +9,16 @@
     tools:context="com.zcommon.simple.MainActivity">
 
     <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:onClick="takePhoto"
+    android:text="TakePhoto" />
+
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="takePhoto"
-        android:text="TakePhoto" />
+        android:onClick="testAop"
+        android:text="Test Aop" />
 
 
     <ImageView
