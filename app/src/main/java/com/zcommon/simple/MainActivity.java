@@ -64,7 +64,7 @@ public class MainActivity extends RxBasePermissionActivity
         Log.e(TAG, "Hello, I am MainActivity");
     }
 
-    @FastClick(isFastClick = true)
+    @FastClick
     public void fastClick(View view) {
         Log.e(TAG, "fastClick-----------");
     }
