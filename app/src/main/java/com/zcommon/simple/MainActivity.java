@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.cc.android.zcommon.aspect.FastClick;
 import com.cc.android.zcommon.aspect.TestAnnoTrace;
 import com.cc.android.zcommon.base.RxBasePermissionActivity;
 import com.cc.android.zcommon.img.CameraAndPictureActivity;
@@ -61,5 +62,10 @@ public class MainActivity extends RxBasePermissionActivity
     @TestAnnoTrace(value = "test", type = 1)
     public void testAop(View view) {
         Log.e(TAG, "Hello, I am MainActivity");
+    }
+
+    @FastClick(isFastClick = true)
+    public void fastClick(View view) {
+        Log.e(TAG, "fastClick-----------");
     }
 }
