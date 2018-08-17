@@ -35,6 +35,7 @@ final def log = project.logger
 final def variants = project.android.applicationVariants
 
 variants.all { variant ->
+    //打Release包的时候，整个if判断注释掉，否则AOP会不起作用。
     if (!variant.buildType.isDebuggable()) {
         log.debug("Skipping non-debuggable build type '${variant.buildType.name}'.")
         return;
