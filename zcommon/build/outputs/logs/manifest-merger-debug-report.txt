@@ -1,42 +1,52 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
-INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
-INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
-INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
-INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
-INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
-INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
+ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-17:12
+INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-17:12
+INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-17:12
+INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-17:12
+INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-17:12
+INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-17:12
+INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-17:12
 	package
 		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:2:5-37
 		INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml
 		INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml
-		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
+		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-17:12
 		INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml
-		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-9:12
+		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:1:1-17:12
 		INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:1:11-69
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:5:1-75
+ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:5:5-79
 	android:name
-		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:5:18-72
+		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:5:22-76
 uses-permission#android.permission.CHANGE_NETWORK_STATE
-ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:6:1-75
+ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:6:5-79
 	android:name
-		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:6:18-72
+		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:6:22-76
 uses-permission#android.permission.ACCESS_WIFI_STATE
-ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:7:1-72
+ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:7:5-76
 	android:name
-		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:7:18-69
+		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:7:22-73
 uses-permission#android.permission.CHANGE_WIFI_STATE
-ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:8:1-72
+ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:8:5-76
 	android:name
-		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:8:18-69
+		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:8:22-73
+application
+ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:10:5-15:19
+activity#com.cc.android.zcommon.aspect.permission.PermissionRequestActivity
+ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:11:9-14:50
+	android:screenOrientation
+		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:13:13-49
+	android:theme
+		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:14:13-47
+	android:name
+		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:12:13-94
 uses-sdk
 INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml

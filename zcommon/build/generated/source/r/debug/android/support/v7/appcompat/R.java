@@ -731,16 +731,16 @@ public final class R {
         public static int abc_search_view = 0x7f0f001a;
         public static int abc_select_dialog_material = 0x7f0f001b;
         public static int abc_tooltip = 0x7f0f001c;
-        public static int notification_action = 0x7f0f0041;
-        public static int notification_action_tombstone = 0x7f0f0042;
-        public static int notification_template_custom_big = 0x7f0f0049;
-        public static int notification_template_icon_group = 0x7f0f004a;
-        public static int notification_template_part_chronometer = 0x7f0f004f;
-        public static int notification_template_part_time = 0x7f0f0050;
-        public static int select_dialog_item_material = 0x7f0f0051;
-        public static int select_dialog_multichoice_material = 0x7f0f0052;
-        public static int select_dialog_singlechoice_material = 0x7f0f0053;
-        public static int support_simple_spinner_dropdown_item = 0x7f0f0054;
+        public static int notification_action = 0x7f0f0042;
+        public static int notification_action_tombstone = 0x7f0f0043;
+        public static int notification_template_custom_big = 0x7f0f004a;
+        public static int notification_template_icon_group = 0x7f0f004b;
+        public static int notification_template_part_chronometer = 0x7f0f0050;
+        public static int notification_template_part_time = 0x7f0f0051;
+        public static int select_dialog_item_material = 0x7f0f0052;
+        public static int select_dialog_multichoice_material = 0x7f0f0053;
+        public static int select_dialog_singlechoice_material = 0x7f0f0054;
+        public static int support_simple_spinner_dropdown_item = 0x7f0f0055;
     }
     public static final class string {
         public static int abc_action_bar_home_description = 0x7f150001;

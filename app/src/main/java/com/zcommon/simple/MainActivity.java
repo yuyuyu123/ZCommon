@@ -29,7 +29,7 @@ import java.util.List;
 
 
 public class MainActivity extends RxBasePermissionActivity
-        implements  RxBasePermissionActivity.OnSinglePermissionRequestCallBack{
+        implements RxBasePermissionActivity.OnSinglePermissionRequestCallBack {
 
     private static final String TAG = "MainActivity";
     private ImageView img;
@@ -63,10 +63,10 @@ public class MainActivity extends RxBasePermissionActivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(data == null) {
+        if (data == null) {
             return;
         }
-        if(requestCode == 1) {
+        if (requestCode == 1) {
             final String path = data.getStringExtra("path");
             Bitmap bitmap = BitmapFactory.decodeFile(path);
             img.setImageBitmap(bitmap);
@@ -93,10 +93,10 @@ public class MainActivity extends RxBasePermissionActivity
     }
 
     public void singlePermission(View view) {
-       location();
+        location();
     }
 
-    @GPermission(value = {Manifest.permission.ACCESS_FINE_LOCATION})
+    @GPermission(value = {Manifest.permission.ACCESS_FINE_LOCATION}, requestCode = 1)
     private void location() {
         T.showShort(this, "定位权限通过");
     }
@@ -109,6 +109,7 @@ public class MainActivity extends RxBasePermissionActivity
     private void takePhoto() {
         T.showShort(this, "拍照和文件读写权限通过");
     }
+
     /**
      * 权限被取消
      *
@@ -131,55 +132,11 @@ public class MainActivity extends RxBasePermissionActivity
                 + ",Permissions: " + Arrays.toString(bean.getDenyList().toArray()), Toast.LENGTH_SHORT).show();
         List<String> denyList = bean.getDenyList();
         switch (bean.getRequestCode()) {
+            case 1:
+                //单个权限申请返回结果
+                break;
             case 10:
                 //多个权限申请返回结果
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < denyList.size(); i++) {
-                    if (Manifest.permission.CAMERA.equals(denyList.get(i))) {
-                        builder.append("相机");
-                    } else if (Manifest.permission.WRITE_EXTERNAL_STORAGE.equals(denyList.get(i))) {
-                        builder.append("文件权限");
-                    }
-                }
-                builder.append("权限被禁止，需要手动打开");
-                new AlertDialog.Builder(MainActivity.this)
-                        .setTitle("提示")
-                        .setMessage(builder)
-                        .setPositiveButton("去设置", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-//                                SettingUtil.go2Setting(MainActivity.this);
-                            }
-                        })
-                        .setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .create().show();
-
-                break;
-            case 0:
-                //单个权限申请返回结果
-                new AlertDialog.Builder(MainActivity.this)
-                        .setTitle("提示")
-                        .setMessage("定位权限被禁止，需要手动打开")
-                        .setPositiveButton("去设置", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-//                                SettingUtil.go2Setting(MainActivity.this);
-                            }
-                        })
-                        .setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .create().show();
                 break;
             default:
                 break;
