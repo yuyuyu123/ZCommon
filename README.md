@@ -89,7 +89,53 @@ variants.all { variant ->
    Log.e(TAG, "fastClick-----------");
  }
 ``` 
-
+3.2 权限申请   
+ZCommon中针对Android M提供了动态权限申请服务，包含Java代码的方式（见下文）和注解的方式，注解包含三个部分：
+1.GPermission（Get Permission），申请权限；  
+2.CPermission（Permission Canceled），权限被用户拒绝，但允许再次提示；  
+3.DPermission（Permission Denied），权限被用户拒绝，且不允许再次提示。   
+下面分别对这三个注解进行讲解：  
+3.2.1 申请单个权限  
+```java
+  @GPermission(value = {Manifest.permission.ACCESS_FINE_LOCATION},requestCode = 1)
+  private void location() {
+     T.showShort(this, "定位权限通过");
+  }
+``` 
+3.2.2 申请多个权限  
+```java
+  @GPermission(value = {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, requestCode = 10)
+  private void takePhoto() {
+     T.showShort(this, "拍照和文件读写权限通过");
+   }
+``` 
+3.2.3 权限被拒绝，但允许再次提示  
+```java
+  @CPermission(requestCode = 10)
+  public void dealCancelPermission(PermissionCanceled bean) {
+     Toast.makeText(this, "requestCode:" + bean.getRequestCode(), Toast.LENGTH_SHORT).show();
+  }
+``` 
+3.2.4 权限被拒绝，且不允许再次提示  
+```java
+  @DPermission
+  public void dealPermission(PermissionDenied bean) {
+     if (bean == null) return;
+     Toast.makeText(this, "requestCode:" + bean.getRequestCode()
+        + ",Permissions: " + Arrays.toString(bean.getDenyList().toArray()), Toast.LENGTH_SHORT).show();
+     switch (bean.getRequestCode()) {
+     //权限被拒绝后，一般提示用户到设置界面手动打开权限
+       case 1:
+        //多单个权限申请返回结果
+        break;
+       case 10:
+        //多个权限申请返回结果
+        break;
+       default:
+         break;
+      }
+   }
+``` 
 # Data Requests   
 1.约定：数据请求一律采用RxJava+Retrofit  
 2.配置   
