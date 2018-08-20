@@ -26,6 +26,24 @@
         android:onClick="fastClick"
         android:text="Fast Click" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="methodTrace"
+        android:text="Method Trace" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="singlePermission"
+        android:text="Single Permission" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="multiPermissions"
+        android:text="Multi Permissions" />
+
 
     <ImageView
         android:id="@+id/img"

@@ -4,13 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ZCommon.iml" filepath="$PROJECT_DIR$/ZCommon.iml" />
       <module fileurl="file://E:\GitProject\ZCommon\ZCommon.iml" filepath="E:\GitProject\ZCommon\ZCommon.iml" />
-      <module fileurl="file://E:\GitProject\zz\ZCommon\ZCommon.iml" filepath="E:\GitProject\zz\ZCommon\ZCommon.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://E:\GitProject\ZCommon\app\app.iml" filepath="E:\GitProject\ZCommon\app\app.iml" />
-      <module fileurl="file://E:\GitProject\zz\ZCommon\app\app.iml" filepath="E:\GitProject\zz\ZCommon\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/zcommon/zcommon.iml" filepath="$PROJECT_DIR$/zcommon/zcommon.iml" />
       <module fileurl="file://E:\GitProject\ZCommon\zcommon\zcommon.iml" filepath="E:\GitProject\ZCommon\zcommon\zcommon.iml" />
-      <module fileurl="file://E:\GitProject\zz\ZCommon\zcommon\zcommon.iml" filepath="E:\GitProject\zz\ZCommon\zcommon\zcommon.iml" />
     </modules>
   </component>
 </project>
