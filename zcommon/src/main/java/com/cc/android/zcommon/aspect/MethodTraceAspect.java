@@ -35,7 +35,7 @@ public class MethodTraceAspect {
         joinPoint.proceed();
         final long diff = System.currentTimeMillis() - start;
         if(BuildConfig.DEBUG) {
-            Log.d(TAG, "method:" + method + " resumed:" + diff + "ms");
+            Log.e(TAG, "method:" + method + " resumed:" + diff + "ms");
         }
     }
 }
