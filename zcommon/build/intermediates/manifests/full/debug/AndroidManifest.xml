@@ -16,7 +16,7 @@
 
     <application>
         <activity
-            android:name="com.cc.android.zcommon.aspect.permission.PermissionRequestActivity"
+            android:name="com.cc.android.zcommon.aspect.permission.PermissionRequestsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/translucent" />
     </application>

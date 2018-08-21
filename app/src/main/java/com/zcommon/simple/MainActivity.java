@@ -117,7 +117,7 @@ public class MainActivity extends RxBasePermissionActivity
      */
     @CPermission(requestCode = 10)
     public void dealCancelPermission(PermissionCanceled bean) {
-        Toast.makeText(this, "requestCode:" + bean.getRequestCode(), Toast.LENGTH_SHORT).show();
+        T.showShort(this, "requestCode:" + bean.getRequestCode());
     }
 
     /**
@@ -128,9 +128,8 @@ public class MainActivity extends RxBasePermissionActivity
     @DPermission
     public void dealPermission(PermissionDenied bean) {
         if (bean == null) return;
-        Toast.makeText(this, "requestCode:" + bean.getRequestCode()
-                + ",Permissions: " + Arrays.toString(bean.getDenyList().toArray()), Toast.LENGTH_SHORT).show();
-        List<String> denyList = bean.getDenyList();
+        T.showShort(this, "requestCode:" + bean.getRequestCode()
+                + ",Permissions: " + Arrays.toString(bean.getDenyList().toArray()));
         switch (bean.getRequestCode()) {
             case 1:
                 //单个权限申请返回结果

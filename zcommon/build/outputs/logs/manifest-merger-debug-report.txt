@@ -39,14 +39,14 @@ ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:8:5-76
 		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:8:22-73
 application
 ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:10:5-15:19
-activity#com.cc.android.zcommon.aspect.permission.PermissionRequestActivity
+activity#com.cc.android.zcommon.aspect.permission.PermissionRequestsActivity
 ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:11:9-14:50
 	android:screenOrientation
 		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:13:13-49
 	android:theme
 		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:14:13-47
 	android:name
-		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:12:13-94
+		ADDED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml:12:13-95
 uses-sdk
 INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\GitProject\zz\ZCommon\zcommon\src\main\AndroidManifest.xml
