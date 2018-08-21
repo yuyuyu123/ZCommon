@@ -1,8 +1,6 @@
 package com.zcommon.simple;
 
 import android.Manifest;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -10,14 +8,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.cc.android.zcommon.aspect.FastClick;
+import com.cc.android.zcommon.aspect.MethodTrace;
+import com.cc.android.zcommon.aspect.TestAnnoTrace;
 import com.cc.android.zcommon.aspect.permission.CPermission;
 import com.cc.android.zcommon.aspect.permission.DPermission;
 import com.cc.android.zcommon.aspect.permission.GPermission;
-import com.cc.android.zcommon.aspect.MethodTrace;
-import com.cc.android.zcommon.aspect.TestAnnoTrace;
 import com.cc.android.zcommon.aspect.permission.PermissionCanceled;
 import com.cc.android.zcommon.aspect.permission.PermissionDenied;
 import com.cc.android.zcommon.base.RxBasePermissionActivity;
@@ -25,7 +22,6 @@ import com.cc.android.zcommon.img.CameraAndPictureActivity;
 import com.cc.android.zcommon.utils.android.T;
 
 import java.util.Arrays;
-import java.util.List;
 
 
 public class MainActivity extends RxBasePermissionActivity
