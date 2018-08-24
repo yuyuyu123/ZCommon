@@ -140,7 +140,7 @@ public class MainActivity extends RxBasePermissionActivity
     }
 
     @Login(val = 100)
-    public void loginn(View view) {
+    public void login(View view) {
         T.showShort(this, "登录了哦");
     }
 }
