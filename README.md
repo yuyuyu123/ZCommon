@@ -10,7 +10,7 @@ repositories {
 ```
 Step2：在具体项目.build目录下添加
 ```gradle
-implemention 'com.github.yuyuyu123:ZCommon:1.3.0'
+implemention 'com.github.yuyuyu123:ZCommon:1.3.1'
 ```
 # AOP（面向切面）支持  
 ZCommon中添加了对Aspectj的依赖，支持AOP编程。   
