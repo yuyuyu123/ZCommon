@@ -136,6 +136,40 @@ ZCommon中针对Android M提供了动态权限申请服务，包含Java代码的
       }
    }
 ``` 
+3.3 登录验证   
+我们在开发过程中有许多地方需要验证用户是否已经登录，对此,ZCommon对其作了统一处理：    
+首先需要在Application类中对LoginManager类进行初始化：  
+```java
+  @Override
+  public void onCreate() {
+    super.onCreate();
+    LoginManager.get().init(this, new OnLoginListener() {
+       @Override
+       public void login(Context context, int val) {
+          Log.e(TAG, "login-------->" + val);
+          //这里写登录逻辑，比如跳转到登录界面
+          if(val == 5) {//根据变量的值可以做不同的操作
+                    
+          }
+        }
+
+        @Override
+        public boolean isLogin(Context context) {
+           Log.e(TAG, "isLogin-------->");
+           //这里判断是否已经登录
+            return false;
+         }
+        });
+    }
+```
+然后在需要验证登录的地方添加Login注解：    
+```java
+   @Login(val = 100)
+   public void login(View view) {
+     T.showShort(this, "登录了哦");
+   }
+```
+  
 # Data Requests   
 1.约定：数据请求一律采用RxJava+Retrofit  
 2.配置   
