@@ -24,6 +24,9 @@ public class App extends Application {
             public void login(Context context, int val) {
                 Log.e(TAG, "login-------->" + val);
                 //这里写登录逻辑，比如跳转到登录界面
+                if(val == 5) {//根据变量的值可以做不同的操作
+
+                }
             }
 
             @Override

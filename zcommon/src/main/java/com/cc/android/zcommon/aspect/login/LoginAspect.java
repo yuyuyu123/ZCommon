@@ -16,8 +16,6 @@ import org.aspectj.lang.reflect.MethodSignature;
  */
 @Aspect
 public class LoginAspect {
-    private static final String TAG = "LoginAspect";
-
     @Pointcut("execution(@com.cc.android.zcommon.aspect.login.Login * *(..))")
     public void loginPoint() {
 
@@ -25,7 +23,6 @@ public class LoginAspect {
 
     @Around("loginPoint()")
     public void login(ProceedingJoinPoint joinPoint) throws Throwable{
-        Log.e(TAG, "loginAspect----------------");
         Context context = LoginManager.get().getContext();
         if(null == context) {
             throw new NullPointerException("The context cannot be null.");
@@ -40,10 +37,8 @@ public class LoginAspect {
             return;
         }
         if(listener.isLogin(context)) {
-            Log.e(TAG, "loginAspect----------------11111111");
             joinPoint.proceed();
         } else {
-            Log.e(TAG, "loginAspect----------------222");
             listener.login(context, login.val());
         }
     }
