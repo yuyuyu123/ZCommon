@@ -45,6 +45,13 @@
         android:text="Multi Permissions" />
 
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="loginn"
+        android:text="Login Auth" />
+
+
     <ImageView
         android:id="@+id/img"
         android:layout_width="200dp"

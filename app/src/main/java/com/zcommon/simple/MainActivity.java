@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import com.cc.android.zcommon.aspect.FastClick;
 import com.cc.android.zcommon.aspect.MethodTrace;
 import com.cc.android.zcommon.aspect.TestAnnoTrace;
+import com.cc.android.zcommon.aspect.login.Login;
 import com.cc.android.zcommon.aspect.permission.CPermission;
 import com.cc.android.zcommon.aspect.permission.DPermission;
 import com.cc.android.zcommon.aspect.permission.GPermission;
@@ -136,5 +137,10 @@ public class MainActivity extends RxBasePermissionActivity
             default:
                 break;
         }
+    }
+
+    @Login(val = 100)
+    public void loginn(View view) {
+        T.showShort(this, "登录了哦");
     }
 }

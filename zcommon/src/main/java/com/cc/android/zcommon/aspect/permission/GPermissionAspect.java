@@ -21,8 +21,6 @@ import java.util.List;
 @Aspect
 public class GPermissionAspect {
 
-    private static final String TAG = "GPermissionAspect";
-
     @Pointcut("execution(@com.cc.android.zcommon.aspect.permission.GPermission * *(..))")
     public void gPermissionPoint() {}
 
