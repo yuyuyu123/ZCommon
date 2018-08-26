@@ -148,7 +148,7 @@ ZCommon中针对Android M提供了动态权限申请服务，包含Java代码的
        public void login(Context context, int val) {
           Log.e(TAG, "login-------->" + val);
           //这里写登录逻辑，比如跳转到登录界面
-          if(val == 5) {//根据变量的值可以做不同的操作
+          if(val == 5) {//根据变量的值可以作不同的操作
                     
           }
         }
