@@ -52,7 +52,8 @@ public class GPermissionAspect {
 
             @Override
             public void onPermissionDenied(int requestCode, List<String> denyList) {
-                Class<?> cls = object.getClass();
+//                Class<?> cls = object.getClass();
+                Class<?> cls = signature.getDeclaringType();
                 Method[] methods = cls.getDeclaredMethods();
                 if (methods == null || methods.length == 0) return;
                 for (Method method : methods) {
@@ -79,7 +80,8 @@ public class GPermissionAspect {
 
             @Override
             public void onPermissionCanceled(int requestCode) {
-                Class<?> cls = object.getClass();
+//                Class<?> cls = object.getClass();
+                Class<?> cls = signature.getDeclaringType();
                 Method[] methods = cls.getDeclaredMethods();
                 if (methods == null || methods.length == 0) return;
                 for (Method method : methods) {
